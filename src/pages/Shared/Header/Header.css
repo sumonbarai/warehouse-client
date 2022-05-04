@@ -1,3 +1,11 @@
 .main-menu {
   background-color: #1f425d;
 }
+.main-menu a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 10px;
+}
