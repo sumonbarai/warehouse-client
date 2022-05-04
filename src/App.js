@@ -6,6 +6,7 @@ import Header from "./pages/Shared/Header/Header";
 import Inventory from "./pages/Inventory/Inventory";
 import Login from "./pages/Login/Login";
 import Footer from "./pages/Shared/Footer/Footer";
+import NotFound from "./pages/Shared/NotFound/NotFound";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="blog" element={<Blog></Blog>} />
         <Route path="inventory" element={<Inventory></Inventory>} />
         <Route path="login" element={<Login></Login>} />
+        <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
       <Footer></Footer>
     </div>
