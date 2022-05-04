@@ -1,10 +1,17 @@
 import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
+  const year = new Date();
+  const currentYear = year.getFullYear();
+
   return (
-    <div>
-      <h1>this is footer page</h1>
-    </div>
+    <footer className="footer-area">
+      <p>
+        &copy; {currentYear} Inventory | All Right Reserved By Inventory
+        Management Team
+      </p>
+    </footer>
   );
 };
 

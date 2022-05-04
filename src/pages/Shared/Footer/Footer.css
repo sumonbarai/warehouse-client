@@ -1,0 +1,10 @@
+.footer-area {
+  background-color: #1f425d;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  color: #fff;
+}
+.footer-area p {
+  margin-bottom: 0;
+}
