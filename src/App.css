@@ -1,0 +1,15 @@
+/* common css */
+.custom-btn {
+  border: none;
+  background-color: #4ab9cf;
+  width: 180px;
+  height: 45px;
+  margin: 5px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.custom-btn:hover {
+  background-color: #1f425d;
+}
