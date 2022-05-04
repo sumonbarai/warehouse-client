@@ -1,0 +1,62 @@
+.user {
+  height: 88vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-area {
+  max-width: 500px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.user h4 {
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+  color: #4ab9cf;
+}
+.user form input {
+  width: 100%;
+  margin-top: 10px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  border: 1px solid #4ab9cf;
+}
+.user p {
+  text-align: right;
+}
+.user a {
+  color: #4ab9cf;
+  text-transform: uppercase;
+  margin-top: 5px;
+  display: inline-block;
+}
+.user form input[type="submit"] {
+  background-color: #4ab9cf;
+  color: #fff;
+  margin-top: 10px;
+}
+.user form input[type="submit"]:hover {
+  background-color: #1f425d;
+}
+.user .social-area p {
+  text-align: center;
+  margin-top: 5px;
+  text-transform: capitalize;
+  margin-bottom: 0;
+  color: #4ab9cf;
+}
+.user .social-icon {
+  text-align: center;
+}
+.user .social-icon span {
+  color: #4ab9cf;
+  font-size: 35px;
+  cursor: pointer;
+}
+.user .forward-user p {
+  text-align: center;
+}

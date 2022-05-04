@@ -10,7 +10,7 @@ const Banner = () => {
         <Link to="/login">
           <button className="custom-btn">Login</button>
         </Link>
-        <Link to="/login">
+        <Link to="/registration">
           <button className="custom-btn">Sign Up - It's Free.</button>
         </Link>
       </div>

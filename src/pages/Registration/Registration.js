@@ -1,29 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./Login.css";
 import { AiFillGoogleCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
-const Login = () => {
+const Registration = () => {
   return (
     <div className="login-area">
       <div className="container">
         <div className="user">
           <div className="form-area">
-            <h4>login</h4>
+            <h4>Registration</h4>
             <form>
+              <input type="text" name="name" placeholder="Enter Full name " />
               <input type="email" name="email" placeholder="Enter Email " />
               <input
                 type="text"
                 name="password"
                 placeholder="Enter Password "
               />
-              <p>
-                <Link to="/forgetpassword">forget Password</Link>
-              </p>
-              <input type="submit" value="login" />
+              <input
+                type="text"
+                name="Confirm password"
+                placeholder="Enter Confirm Password "
+              />
+
+              <input type="submit" value="Registration" />
             </form>
             <div className="social-area">
-              <p>or login with</p>
+              <p>or Registration with</p>
               <div className="social-icon">
                 <span>
                   <AiFillGoogleCircle></AiFillGoogleCircle>
@@ -32,7 +35,7 @@ const Login = () => {
             </div>
             <div className="forward-user">
               <p>
-                New User <Link to="/registration">create an account</Link>{" "}
+                All ready Have account <Link to="/login">Login</Link>{" "}
               </p>
             </div>
           </div>
@@ -42,4 +45,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Registration;
