@@ -1,0 +1,27 @@
+.contact-area form input,
+.contact-area form textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #4ab9cf;
+  border-radius: 5px;
+  caret-color: #4ab9cf;
+}
+.contact-area form button {
+  background-color: #4ab9cf;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: capitalize;
+}
+.contact-area form button:hover {
+  background-color: #1f425d;
+  color: #fff;
+}
+.contact-area .contact-details h5 {
+  text-transform: uppercase;
+}
+.contact-area .contact-details .contact-info {
+  margin-bottom: 30px;
+}
