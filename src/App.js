@@ -12,6 +12,7 @@ import Registration from "./pages/Registration/Registration";
 import ManageItems from "./pages/ManageItems/ManageItems";
 import MyItems from "./pages/MyItems/MyItems";
 import AddItem from "./pages/AddItem/AddItem";
+import RequireAuth from "./pages/Shared/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -23,9 +24,31 @@ function App() {
         <Route path="blog" element={<Blog></Blog>} />
         <Route path="inventory" element={<Inventory></Inventory>} />
         <Route path="login" element={<Login></Login>} />
-        <Route path="manageitems" element={<ManageItems></ManageItems>} />
-        <Route path="myitems" element={<MyItems></MyItems>} />
-        <Route path="additems" element={<AddItem></AddItem>} />
+
+        <Route
+          path="manageitems"
+          element={
+            <RequireAuth>
+              <ManageItems></ManageItems>
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="myitems"
+          element={
+            <RequireAuth>
+              <MyItems></MyItems>
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="additems"
+          element={
+            <RequireAuth>
+              <AddItem></AddItem>
+            </RequireAuth>
+          }
+        />
         <Route
           path="forgetpassword"
           element={<ForgetPassword></ForgetPassword>}

@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useUpdateProfile } from "react-firebase-hooks/auth";
 
 const Registration = () => {
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [customError, setCustomError] = useState("");
   const [updateProfile] = useUpdateProfile(auth);
 
@@ -28,7 +33,7 @@ const Registration = () => {
     event.target.reset();
   };
   // user loading state
-  if (loading) {
+  if (loading || googleLoading) {
     return (
       <div className="d-flex justify-content-center align-items-center vh-100">
         <div className="spinner-border" role="status">
@@ -38,7 +43,7 @@ const Registration = () => {
     );
   }
   // if user successfully registration
-  if (user) {
+  if (user || googleUser) {
     navigate("/home");
   }
 
@@ -65,12 +70,15 @@ const Registration = () => {
                 <span className="text-danger">{customError}</span>
               )}
               {error && <span className="text-danger">{error.message}</span>}
+              {googleError && (
+                <span className="text-danger">{googleError.message}</span>
+              )}
               <input type="submit" value="Registration" />
             </form>
             <div className="social-area">
               <p>or Registration with</p>
               <div className="social-icon">
-                <span>
+                <span onClick={() => signInWithGoogle()}>
                   <AiFillGoogleCircle></AiFillGoogleCircle>
                 </span>
               </div>

@@ -1,15 +1,19 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 const Login = () => {
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
   const navigate = useNavigate();
+  const location = useLocation();
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-
+  const from = location.state?.from?.pathname || "/";
   // user login system
   const handleLogin = (event) => {
     event.preventDefault();
@@ -18,7 +22,7 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
   };
   // user loading state
-  if (loading) {
+  if (loading || googleLoading) {
     return (
       <div className="d-flex justify-content-center align-items-center vh-100">
         <div className="spinner-border" role="status">
@@ -28,8 +32,8 @@ const Login = () => {
     );
   }
   // if user in successfully login
-  if (user) {
-    navigate("/home");
+  if (user || googleUser) {
+    navigate(from, { replace: true });
   }
   return (
     <div className="login-area">
@@ -45,6 +49,9 @@ const Login = () => {
                 placeholder="Enter Password "
               />
               {error && <span className="text-danger">{error.message}</span>}
+              {googleError && (
+                <span className="text-danger">{googleError.message}</span>
+              )}
               <p>
                 <Link to="/forgetpassword">forget Password</Link>
               </p>
@@ -53,7 +60,7 @@ const Login = () => {
             <div className="social-area">
               <p>or login with</p>
               <div className="social-icon">
-                <span>
+                <span onClick={() => signInWithGoogle()}>
                   <AiFillGoogleCircle></AiFillGoogleCircle>
                 </span>
               </div>
