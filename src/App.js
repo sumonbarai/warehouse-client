@@ -24,7 +24,6 @@ function App() {
         <Route path="blog" element={<Blog></Blog>} />
         <Route path="inventory" element={<Inventory></Inventory>} />
         <Route path="login" element={<Login></Login>} />
-
         <Route
           path="manageitems"
           element={
