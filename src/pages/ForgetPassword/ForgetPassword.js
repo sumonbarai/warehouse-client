@@ -1,6 +1,4 @@
 import React from "react";
-import { AiFillGoogleCircle } from "react-icons/ai";
-import { Link } from "react-router-dom";
 
 const ForgetPassword = () => {
   return (
