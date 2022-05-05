@@ -22,9 +22,13 @@ const Header = () => {
               <Link to="/home">Home</Link>
               <Link to="/inventory">Inventory</Link>
               <Link to="/blog">blog</Link>
-              <Link to="/additems">Add items</Link>
-              <Link to="/myitems">My items</Link>
-              <Link to="/manageitems">Manage items</Link>
+              {user && (
+                <>
+                  <Link to="/additems">Add items</Link>
+                  <Link to="/myitems">My items</Link>
+                  <Link to="/manageitems">Manage items</Link>
+                </>
+              )}
               {user ? (
                 <button
                   onClick={handleLogOut}
