@@ -9,6 +9,9 @@ import Footer from "./pages/Shared/Footer/Footer";
 import NotFound from "./pages/Shared/NotFound/NotFound";
 import ForgetPassword from "./pages/ForgetPassword/ForgetPassword";
 import Registration from "./pages/Registration/Registration";
+import ManageItems from "./pages/ManageItems/ManageItems";
+import MyItems from "./pages/MyItems/MyItems";
+import AddItem from "./pages/AddItem/AddItem";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
         <Route path="blog" element={<Blog></Blog>} />
         <Route path="inventory" element={<Inventory></Inventory>} />
         <Route path="login" element={<Login></Login>} />
+        <Route path="manageitems" element={<ManageItems></ManageItems>} />
+        <Route path="myitems" element={<MyItems></MyItems>} />
+        <Route path="additems" element={<AddItem></AddItem>} />
         <Route
           path="forgetpassword"
           element={<ForgetPassword></ForgetPassword>}
