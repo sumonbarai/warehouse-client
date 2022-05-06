@@ -23,3 +23,13 @@
   font-size: 35px;
   margin-bottom: 30px;
 }
+.table-btn {
+  background-color: #4ab9cf;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+}
+.table-btn:hover {
+  background-color: #1f425d;
+}
