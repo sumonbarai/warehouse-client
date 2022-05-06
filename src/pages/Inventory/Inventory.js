@@ -5,18 +5,30 @@ import { Link, useNavigate } from "react-router-dom";
 const Inventory = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
-  console.log(products);
+
   useEffect(() => {
     const url = `http://localhost:5000/product`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [products]);
 
   const handleUpdate = (_id) => {
     navigate(`/productDetails/${_id}`);
   };
-
+  const handleDelete = (_id) => {
+    const confirm = window.confirm("Do you want to delete?");
+    if (confirm) {
+      fetch(`http://localhost:5000/product/${_id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const rest = products.filter((product) => product._id !== _id);
+          setProducts(rest);
+        });
+    }
+  };
   return (
     <div className="inventory-area">
       <div className="container">
@@ -51,6 +63,7 @@ const Inventory = () => {
                     </td>
                     <td className="text-center">
                       <button
+                        onClick={() => handleDelete(product._id)}
                         style={{ backgroundColor: "red" }}
                         className="table-btn"
                       >
