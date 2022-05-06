@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import "./ProductDetails.css";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -31,6 +32,30 @@ const ProductDetails = () => {
         toast.success("Successfully delivered!");
       });
   };
+
+  // handleUpdateQuantity increase
+  const handleUpdateQuantity = (event) => {
+    event.preventDefault();
+    const newQuantity = event.target.quantity.value;
+    const quantity = product.quantity + parseFloat(newQuantity);
+    const updateQuantity = { quantity: quantity };
+    if (quantity > 0) {
+      const url = `http://localhost:5000/productIncrease?id=${product._id}`;
+      fetch(url, {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updateQuantity),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setProduct(data);
+          toast.success("Successfully Updated!");
+          event.target.reset();
+        });
+    }
+  };
   return (
     <div className="product-details-area">
       <div className="container">
@@ -56,6 +81,18 @@ const ProductDetails = () => {
                   delivered
                 </button>
               </div>
+            </div>
+          </div>
+          <div className="row quantity-area">
+            <div className="col">
+              <form onSubmit={handleUpdateQuantity}>
+                <input
+                  type="number"
+                  name="quantity"
+                  placeholder="Enter quantity"
+                />
+                <input type="submit" value="Update Quantity" />
+              </form>
             </div>
           </div>
         </div>
