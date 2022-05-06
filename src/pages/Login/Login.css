@@ -18,7 +18,8 @@
   text-transform: uppercase;
   color: #4ab9cf;
 }
-.user form input {
+.user form input,
+.user form textarea {
   width: 100%;
   margin-top: 10px;
   padding: 5px 15px;

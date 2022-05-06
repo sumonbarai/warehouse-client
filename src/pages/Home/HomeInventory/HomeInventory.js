@@ -7,7 +7,7 @@ import "./HomeInventory.css";
 const HomeInventory = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:5000/product?total=3`;
+    const url = `http://localhost:5000/product?total=10`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
