@@ -7,6 +7,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useUpdateProfile } from "react-firebase-hooks/auth";
+import Loading from "../Shared/Loading/Loading";
 
 const Registration = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -34,13 +35,7 @@ const Registration = () => {
   };
   // user loading state
   if (loading || googleLoading) {
-    return (
-      <div className="d-flex justify-content-center align-items-center vh-100">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
+    return <Loading></Loading>;
   }
   // if user successfully registration
   if (user || googleUser) {

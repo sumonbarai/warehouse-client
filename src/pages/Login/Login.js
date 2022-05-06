@@ -5,6 +5,7 @@ import { AiFillGoogleCircle } from "react-icons/ai";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import Loading from "../Shared/Loading/Loading";
 
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -23,13 +24,7 @@ const Login = () => {
   };
   // user loading state
   if (loading || googleLoading) {
-    return (
-      <div className="d-flex justify-content-center align-items-center vh-100">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
+    return <Loading></Loading>;
   }
   // if user in successfully login
   if (user || googleUser) {

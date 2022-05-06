@@ -13,6 +13,8 @@ import ManageItems from "./pages/ManageItems/ManageItems";
 import MyItems from "./pages/MyItems/MyItems";
 import AddItem from "./pages/AddItem/AddItem";
 import RequireAuth from "./pages/Shared/RequireAuth/RequireAuth";
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -22,10 +24,10 @@ function App() {
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />
         <Route path="blog" element={<Blog></Blog>} />
-        <Route path="inventory" element={<Inventory></Inventory>} />
-        <Route path="login" element={<Login></Login>} />
+        <Route path="/inventory" element={<Inventory></Inventory>} />
+        <Route path="/login" element={<Login></Login>} />
         <Route
-          path="manageitems"
+          path="/manageitems"
           element={
             <RequireAuth>
               <ManageItems></ManageItems>
@@ -33,7 +35,7 @@ function App() {
           }
         />
         <Route
-          path="myitems"
+          path="/myitems"
           element={
             <RequireAuth>
               <MyItems></MyItems>
@@ -41,7 +43,7 @@ function App() {
           }
         />
         <Route
-          path="additems"
+          path="/additems"
           element={
             <RequireAuth>
               <AddItem></AddItem>
@@ -49,13 +51,22 @@ function App() {
           }
         />
         <Route
-          path="forgetpassword"
+          path="/productDetails/:id"
+          element={
+            <RequireAuth>
+              <ProductDetails></ProductDetails>
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/forgetpassword"
           element={<ForgetPassword></ForgetPassword>}
         />
-        <Route path="registration" element={<Registration></Registration>} />
+        <Route path="/registration" element={<Registration></Registration>} />
         <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
       <Footer></Footer>
+      <Toaster />
     </div>
   );
 }
