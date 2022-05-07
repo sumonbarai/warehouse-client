@@ -33,3 +33,18 @@
 .table-btn:hover {
   background-color: #1f425d;
 }
+
+/* responsive coding */
+@media (max-width: 991.98px) {
+  .banner-area h1 {
+    font-size: 30px !important;
+    line-height: 32px !important;
+  }
+  .custom-btn {
+    width: 160px;
+    height: 40px;
+  }
+  .section-title {
+    font-size: 30px;
+  }
+}

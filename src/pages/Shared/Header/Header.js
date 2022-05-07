@@ -21,15 +21,15 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="m-auto">
               <Link to="/home">Home</Link>
-              <Link to="/inventory">Inventory</Link>
-              <Link to="/blog">blog</Link>
+              <Link to="/inventory">Manage Inventories</Link>
+
               {user && (
                 <>
                   <Link to="/additems">Add items</Link>
                   <Link to="/myitems">My items</Link>
-                  <Link to="/manageitems">Manage items</Link>
                 </>
               )}
+              <Link to="/blog">blog</Link>
               {user ? (
                 <button
                   onClick={handleLogOut}

@@ -7,7 +7,7 @@ import "./HomeInventory.css";
 const HomeInventory = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:5000/product?total=10`;
+    const url = `http://localhost:5000/product?total=6`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -25,7 +25,7 @@ const HomeInventory = () => {
         {
           <Link className="text-decoration-none" to="/inventory">
             <button className="custom-btn mx-auto d-block my-3">
-              all inventory
+              Manage Inventories
             </button>
           </Link>
         }
