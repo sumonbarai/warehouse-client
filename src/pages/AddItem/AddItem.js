@@ -16,7 +16,7 @@ const AddItem = () => {
     const img = event.target.img.value;
     const description = event.target.description.value;
     const data = { email, name, price, quantity, Supplier, img, description };
-    fetch("http://localhost:5000/product", {
+    fetch("https://evening-spire-35623.herokuapp.com/product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

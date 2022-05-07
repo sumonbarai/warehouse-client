@@ -7,7 +7,7 @@ const MyItems = () => {
   const [user] = useAuthState(auth);
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:5000/productEmail?email=${user.email}`;
+    const url = `https://evening-spire-35623.herokuapp.com/productEmail?email=${user.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -17,7 +17,7 @@ const MyItems = () => {
   const handleDelete = (_id) => {
     const confirm = window.confirm("Do you want to delete?");
     if (confirm) {
-      fetch(`http://localhost:5000/product/${_id}`, {
+      fetch(`https://evening-spire-35623.herokuapp.com/product/${_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

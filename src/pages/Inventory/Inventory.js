@@ -7,7 +7,7 @@ const Inventory = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = `http://localhost:5000/product`;
+    const url = `https://evening-spire-35623.herokuapp.com/product`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -19,7 +19,7 @@ const Inventory = () => {
   const handleDelete = (_id) => {
     const confirm = window.confirm("Do you want to delete?");
     if (confirm) {
-      fetch(`http://localhost:5000/product/${_id}`, {
+      fetch(`https://evening-spire-35623.herokuapp.com/product/${_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

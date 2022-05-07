@@ -8,7 +8,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://evening-spire-35623.herokuapp.com/product/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
@@ -18,7 +18,7 @@ const ProductDetails = () => {
   const handleDelivered = () => {
     const currentQuantity = product.quantity - 1;
     const quantity = { quantity: currentQuantity };
-    const url = `http://localhost:5000/product?id=${product._id}`;
+    const url = `https://evening-spire-35623.herokuapp.com/product?id=${product._id}`;
     fetch(url, {
       method: "put",
       headers: {
@@ -40,7 +40,7 @@ const ProductDetails = () => {
     const quantity = product.quantity + parseFloat(newQuantity);
     const updateQuantity = { quantity: quantity };
     if (quantity > 0) {
-      const url = `http://localhost:5000/productIncrease?id=${product._id}`;
+      const url = `https://evening-spire-35623.herokuapp.com/productIncrease?id=${product._id}`;
       fetch(url, {
         method: "put",
         headers: {

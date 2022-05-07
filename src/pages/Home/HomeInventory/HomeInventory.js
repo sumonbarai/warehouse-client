@@ -7,7 +7,7 @@ import "./HomeInventory.css";
 const HomeInventory = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:5000/product?total=6`;
+    const url = `https://evening-spire-35623.herokuapp.com/product?total=6`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
