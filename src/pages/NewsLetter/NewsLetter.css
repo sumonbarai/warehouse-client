@@ -1,0 +1,18 @@
+.news-letter-area {
+  background-color: #4ab9cf;
+  padding: 40px;
+}
+.news-letter-area form input {
+  width: 60%;
+  margin-top: 10px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  border: 1px solid #4ab9cf;
+}
+.news-letter-area form button {
+  background-color: #1f425d;
+  padding: 5px 15px;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+}

@@ -48,3 +48,12 @@
     font-size: 30px;
   }
 }
+@media (max-width: 575.98px) {
+  .news-letter-area {
+    text-align: center;
+  }
+  .news-letter-area form input {
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+}
