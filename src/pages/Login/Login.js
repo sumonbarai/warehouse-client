@@ -16,11 +16,23 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const from = location.state?.from?.pathname || "/";
   // user login system
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    // get token
+    fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("assess_token", data.assess_token);
+      });
   };
   // user loading state
   if (loading || googleLoading) {

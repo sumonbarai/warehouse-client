@@ -8,7 +8,11 @@ const MyItems = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const url = `https://evening-spire-35623.herokuapp.com/productEmail?email=${user.email}`;
-    fetch(url)
+    fetch(url, {
+      headers: {
+        authorization: `Bearer ${localStorage.assess_token}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [products]);

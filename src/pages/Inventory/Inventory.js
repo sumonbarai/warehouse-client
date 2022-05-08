@@ -35,7 +35,7 @@ const Inventory = () => {
         <div className="row">
           <div className="col">
             <h2 className="section-title mt-3">All inventory display</h2>
-            <Table striped bordered hover size="sm">
+            <Table striped bordered hover responsive size="sm">
               <thead>
                 <tr className="text-center">
                   <th>Name</th>
