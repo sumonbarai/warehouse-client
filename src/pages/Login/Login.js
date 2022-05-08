@@ -22,7 +22,7 @@ const Login = () => {
     const password = event.target.password.value;
     await signInWithEmailAndPassword(email, password);
     // get token
-    fetch("http://localhost:5000/login", {
+    fetch("https://evening-spire-35623.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
