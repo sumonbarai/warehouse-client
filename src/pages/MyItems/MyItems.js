@@ -15,7 +15,7 @@ const MyItems = () => {
     })
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, [products]);
+  }, [products, user.email]);
   //  handle delete product api
 
   const handleDelete = (_id) => {

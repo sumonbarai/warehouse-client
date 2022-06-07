@@ -7,12 +7,15 @@ const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
 
-  useEffect(() => {
-    const url = `https://evening-spire-35623.herokuapp.com/product/${id}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
-  }, [product]);
+  useEffect(
+    (id) => {
+      const url = `https://evening-spire-35623.herokuapp.com/product/${id}`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => setProduct(data));
+    },
+    [product, id]
+  );
 
   // one product delivered
   const handleDelivered = () => {
