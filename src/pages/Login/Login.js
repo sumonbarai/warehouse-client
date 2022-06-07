@@ -42,6 +42,21 @@ const Login = () => {
   if (user || googleUser) {
     navigate(from, { replace: true });
   }
+  if (googleUser) {
+    const email = googleUser?.user?.email;
+    // // get token
+    fetch("https://evening-spire-35623.herokuapp.com/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("assess_token", data.assess_token);
+      });
+  }
   return (
     <div className="login-area">
       <div className="container">

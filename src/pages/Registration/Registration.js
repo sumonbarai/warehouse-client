@@ -28,6 +28,18 @@ const Registration = () => {
     if (password === ConfirmPassword) {
       await createUserWithEmailAndPassword(email, password);
       await updateProfile({ displayName: displayName });
+      // // get token
+      fetch("https://evening-spire-35623.herokuapp.com/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          localStorage.setItem("assess_token", data.assess_token);
+        });
     } else {
       setCustomError("password does not match");
     }
@@ -41,7 +53,22 @@ const Registration = () => {
   if (user || googleUser) {
     navigate("/home");
   }
-
+  // google user create access token
+  if (googleUser) {
+    const email = googleUser?.user?.email;
+    // // get token
+    fetch("https://evening-spire-35623.herokuapp.com/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("assess_token", data.assess_token);
+      });
+  }
   return (
     <div className="login-area">
       <div className="container">
